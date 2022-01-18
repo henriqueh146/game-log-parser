@@ -10,7 +10,7 @@ gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D69
 ```
 curl -sSL https://get.rvm.io/ | bash -s stable
 ```
-3. Then, restart the system and enter rvm cleanup all on the Terminal
+3. Then, restart the system and enter `rvm cleanup all` on the Terminal
 4. Check the Run command as login shell option in the Profile Preferences
 
 ## Install Ruby 3.1.0 using RVM
@@ -33,4 +33,3 @@ gem 'rspec'
 ```
 2. Enter `bundle install` on the Terminal
 3. Enter `rspec --init` and paste the `open_spec.rb` and `line_spec.rb` into the `spec` folder (if you haven't the files already).
-
