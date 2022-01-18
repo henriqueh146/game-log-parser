@@ -1,6 +1,6 @@
 require 'classes/game_parser'
 
-describe 'GameParser open file exception' do
+describe '#print_first_line' do
   it "Raise an exception when the file is absent" do
     expect{
       GameParser.new("absent_file").print_first_line

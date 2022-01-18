@@ -1,6 +1,6 @@
 require 'classes/game_parser'
 
-describe 'main' do
+describe '#print_first_line' do
   it "Print the first line from games.log" do
     expect{
       GameParser.new("games.log").print_first_line 
