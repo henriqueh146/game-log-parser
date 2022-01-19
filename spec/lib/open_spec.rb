@@ -1,4 +1,4 @@
-require 'classes/game_parser'
+require 'game_parser'
 
 describe '#print_first_line' do
   it "Raise an exception when the file is absent" do
