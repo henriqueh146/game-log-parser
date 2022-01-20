@@ -15,3 +15,12 @@ describe '#get_first_line' do
     }.to output("  0:00 ------------------------------------------------------------\n").to_stdout
   end
 end
+
+describe '#get_log_metadata' do
+  it "Return a json object with the number of lines of a log file" do
+    file = GameParser.new("spec/fixtures/games-fake.log")
+    path, value = JSON.parse("{#{file.get_log_metadata}}").first
+    lines, number_of_lines = value.first
+    expect(File.exists?(path) && (lines == "lines")).to eql(true)
+  end
+end
