@@ -1,3 +1,5 @@
+require 'json'
+
 class GameParser
   def initialize(file)
    raise Exception.new "File doesn't exist" unless File.file?(file)
@@ -6,5 +8,13 @@ class GameParser
 
   def get_first_line
     File.open(@file, &:readline)
+  end
+
+  def get_log_metadata
+    path = File.expand_path(@file)
+    lines = File.readlines(@file).length
+    metadata = {path => {"lines" => lines}}
+    json = JSON.pretty_generate(metadata)
+    json[1..json.length-2]
   end
 end
