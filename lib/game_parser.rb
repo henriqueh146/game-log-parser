@@ -11,9 +11,19 @@ class GameParser
   end
 
   def get_log_metadata
-    path = File.expand_path(@file)
-    lines = File.readlines(@file).length
+    path = get_file_path
+    lines = get_number_of_lines
     metadata = {path => {"lines" => lines}}
     JSON.pretty_generate(metadata)
   end
+
+  def get_number_of_lines
+    File.readlines(@file).length
+  end
+
+  def get_file_path
+    File.expand_path(@file)
+  end
+
+  private :get_number_of_lines, :get_file_path
 end

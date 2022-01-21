@@ -9,22 +9,14 @@ describe GameParser do
   
   describe '#get_first_line' do
     it "Print the first line from games.log" do
-      expect{
-        puts GameParser.new("spec/fixtures/games-fake.log").get_first_line 
-      }.to output("  0:00 ------------------------------------------------------------\n").to_stdout
+      expect(GameParser.new("spec/fixtures/games-fake.log").get_first_line).to eql("  0:00 ------------------------------------------------------------\n")
     end
   end
 
   describe '#get_log_metadata' do
     it "Return a json object with the number of lines of a log file" do
       parser = GameParser.new("spec/fixtures/games-fake.log")
-      expect{
-        puts parser.get_log_metadata
-      }.to output("{\n  \"/home/henrique/projects/job-code/game-log-parser/spec/fixtures/games-fake.log\": {\n    \"lines\": 10\n  }\n}\n").to_stdout
+      expect(parser.get_log_metadata).to eql("{\n  \"/home/henrique/projects/job-code/game-log-parser/spec/fixtures/games-fake.log\": {\n    \"lines\": 10\n  }\n}")
     end
   end
 end
-
-
-
-
