@@ -14,7 +14,6 @@ class GameParser
     path = File.expand_path(@file)
     lines = File.readlines(@file).length
     metadata = {path => {"lines" => lines}}
-    json = JSON.pretty_generate(metadata)
-    json[1..json.length-2]
+    JSON.pretty_generate(metadata)
   end
 end
