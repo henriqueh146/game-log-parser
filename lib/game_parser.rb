@@ -17,6 +17,8 @@ class GameParser
     JSON.pretty_generate(metadata)
   end
 
+  private
+
   def get_number_of_lines
     File.readlines(@file).length
   end
@@ -25,5 +27,4 @@ class GameParser
     File.expand_path(@file)
   end
 
-  private :get_number_of_lines, :get_file_path
 end
