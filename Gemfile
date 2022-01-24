@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-# ruby
+# ruby version
 ruby '3.1.0'
 
 # gems
