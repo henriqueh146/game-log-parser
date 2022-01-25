@@ -33,3 +33,22 @@ gem 'rspec'
 ```
 2. Enter `bundle install` on the Terminal
 3. Enter `rspec --init` and paste the `open_spec.rb` and `line_spec.rb` into the `spec` folder (if you haven't the files already).
+
+## Install and setting Rubocop
+1. Add to the Gemfile:
+```
+gem 'rubocop', '~> 1.25', require: false
+```
+2. Enter `bundle install` on the Terminal
+
+## Install and setting SimpleCov
+1. Add to the Gemfile:
+```
+gem 'simplecov', require: false, group: :test
+```
+2. Enter `bundle install` on the Terminal
+3. Add to the top of the `spec/spec_helper.rb` file:
+```
+require 'simplecov'
+SimpleCov.start
+```
