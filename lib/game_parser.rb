@@ -14,7 +14,8 @@ class GameParser
     path = get_file_path
     lines = get_number_of_lines
     players = get_players
-    metadata = {path => {"lines" => lines, "players" => players}}
+    deaths = get_deaths players
+    metadata = {path => {"lines" => lines, "players" => players, "kills" => deaths}}
     JSON.pretty_generate(metadata)
   end
 
@@ -45,4 +46,17 @@ class GameParser
     players.compact
   end
 
+  def get_deaths(players)
+    deaths = {}
+    players.each{ |player|
+      deaths[player] = 0
+    }
+    File.readlines(@file, chomp: true).each { |line|
+      if line.include?("Kill")
+        killer = line[/(?<=: )([a-zA-Z ]*)(?= killed )/m, 1]
+        deaths[killer] = deaths[killer] + 1 if killer
+      end
+    }
+    deaths
+  end
 end
