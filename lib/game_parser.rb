@@ -44,5 +44,4 @@ class GameParser
     }
     players.compact
   end
-
 end
