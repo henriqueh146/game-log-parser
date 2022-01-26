@@ -1,6 +1,6 @@
 require_relative 'lib/game_parser'
 
-parser = GameParser.new("games.log")
+parser = GameParser.new('games.log')
 
-puts parser.get_first_line
-puts parser.get_log_metadata
+puts parser.first_line
+puts parser.log_metadata
