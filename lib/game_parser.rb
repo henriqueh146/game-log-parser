@@ -15,7 +15,7 @@ class GameParser
     lines = get_number_of_lines
     players = get_players
     deaths = get_deaths players
-    metadata = {path => {"lines" => lines, "players" => players, "kills" => deaths}}
+    metadata = {path => {"lines" => lines, "players" => players, "kills" => deaths, "total_kills" => deaths.values.sum } }
     JSON.pretty_generate(metadata)
   end
 
