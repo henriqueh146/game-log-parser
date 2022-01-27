@@ -14,8 +14,7 @@ class GameParser
     path = get_file_path
     lines = get_number_of_lines
     players = get_players
-    metadata = {path => {"lines" => lines, "players" => players}}
-    JSON.pretty_generate(metadata)
+    {path => {"lines" => lines, "players" => players}}
   end
 
   private

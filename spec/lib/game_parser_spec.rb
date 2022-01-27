@@ -17,11 +17,10 @@ describe GameParser do
   describe '#get_log_metadata' do
     it "Return a json object with the number of lines of a log file" do
       parser = GameParser.new("spec/fixtures/games-fake.log")
-      expect(parser.get_log_metadata).to eql("{\n  \"/home/henrique/projects/job-code/game-log-parser/spec/fixtures/"\
-        "games-fake.log\": {\n    \"lines\": 31,\n    \"players\": [\n      \"Isgalamido\",\n      \"Dono da Bola\",\n"\
-        "      \"Mocinha\"\n    ]\n  }\n}")
+      expect(parser.get_log_metadata).to eql(
+        { '/home/henrique/projects/job-code/game-log-parser/spec/fixtures/games-fake.log' =>
+          { 'lines' => 31, 'players' => ['Isgalamido', 'Dono da Bola', 'Mocinha'] } }
+      )
     end
   end
-
-
 end
