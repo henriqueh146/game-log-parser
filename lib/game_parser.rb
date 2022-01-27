@@ -30,18 +30,17 @@ class GameParser
 
   def get_players
     file_lines = File.readlines(@file, chomp: true)
-    players = []
-    file_lines.each { |line|
+    file_lines.flat_map do |line|
       if line.include?("Kill")
         killer = line[/(?<=: )([a-zA-Z ]*)(?= killed )/m, 1]
         killed = line[/(?<= killed )([a-zA-Z ]*)(?= by)/m, 1]
-        players.push(killer) unless players.include?(killer)
-        players.push(killed) unless players.include?(killed)
+        [killer, killed]
       elsif line.include?("ClientUserinfoChanged")
         player = line[/ n\\([a-zA-Z ]*)\\t/m, 1]
-        players.push(player) unless players.include?(player)
+        player
+      else
+        []
       end
-    }
-    players.compact
+    end.uniq.compact
   end
 end
