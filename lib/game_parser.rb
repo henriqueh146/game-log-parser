@@ -13,8 +13,7 @@ class GameParser
   def get_log_metadata
     path = get_file_path
     lines = get_number_of_lines
-    players = get_players
-    {path => {"lines" => lines, "players" => players}}
+    {path => {"lines" => lines, "players" => get_players}}
   end
 
   private
