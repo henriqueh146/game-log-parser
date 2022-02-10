@@ -15,7 +15,7 @@ describe GameParser do
   end
 
   describe '#log_metadata' do
-    it 'Return a json object with the number of lines of a log file' do
+    it 'Return a hash containing data about the log file' do
       parser = GameParser.new('spec/fixtures/games-fake.log')
       expect(parser.log_metadata).to eql({ '/home/henrique/projects/job-code/game-log-parser/spec/fixtures/games-fake'\
         '.log' => { 'lines' => 31, 'players' => ['Isgalamido', 'Dono da Bola', 'Mocinha'],
